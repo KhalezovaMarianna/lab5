@@ -312,7 +312,7 @@ public class GraphicsDisplay extends JPanel {
     public class MouseHandler extends MouseAdapter {
         public MouseHandler() {
         }
-
+/*просто нажатие*/
         public void mouseClicked(MouseEvent ev) {
             if (ev.getButton() == 3) {
                 if (GraphicsDisplay.this.undoHistory.size() > 0) {
@@ -326,7 +326,7 @@ public class GraphicsDisplay extends JPanel {
             }
 
         }
-
+/*нажатие с удержанием*/
         public void mousePressed(MouseEvent ev) {
             if (ev.getButton() == 1) {
                 GraphicsDisplay.this.selectedMarker = GraphicsDisplay.this.findSelectedPoint(ev.getX(), ev.getY());
@@ -342,7 +342,7 @@ public class GraphicsDisplay extends JPanel {
 
             }
         }
-
+/* срабатывает при отпускании кнопки*/
         public void mouseReleased(MouseEvent ev) {
             if (ev.getButton() == 1) {
                 GraphicsDisplay.this.setCursor(Cursor.getPredefinedCursor(0));
@@ -364,7 +364,7 @@ public class GraphicsDisplay extends JPanel {
     public class MouseMotionHandler implements MouseMotionListener {
         public MouseMotionHandler() {
         }
-
+/*просто наведение*/
         public void mouseMoved(MouseEvent ev) {
             GraphicsDisplay.this.selectedMarker = GraphicsDisplay.this.findSelectedPoint(ev.getX(), ev.getY());
             if (GraphicsDisplay.this.selectedMarker >= 0) {
@@ -375,7 +375,7 @@ public class GraphicsDisplay extends JPanel {
 
             GraphicsDisplay.this.repaint();
         }
-
+/*перемещение удерживая*/
         public void mouseDragged(MouseEvent ev) {
             if (GraphicsDisplay.this.changeMode) {
                 double[] currentPoint = GraphicsDisplay.this.translatePointToXY(ev.getX(), ev.getY());
